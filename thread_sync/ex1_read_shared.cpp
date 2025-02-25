@@ -5,10 +5,7 @@ int main()
 {
     std::string text{"Some text"};
 
-    const auto threadFunc = [&text]()
-    {
-        print(text);
-    };
+    const auto threadFunc = [&text]() { print(text); };
 
     std::vector<std::jthread> threads;
 

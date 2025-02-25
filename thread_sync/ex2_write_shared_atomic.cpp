@@ -5,8 +5,7 @@ int main()
 {
     int iterations{};
 
-    const auto threadFunc = [&iterations]()
-    {
+    const auto threadFunc = [&iterations]() {
         for (int i = 0; i < 10'000; i++)
             ++iterations;
     };
@@ -16,7 +15,7 @@ int main()
     for (int i = 0; i < 4; i++)
         threads.emplace_back(threadFunc);
 
-    for (auto &thread : threads)
+    for (auto& thread : threads)
         thread.join();
 
     print("Iterations: ", iterations);

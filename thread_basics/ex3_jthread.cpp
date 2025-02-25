@@ -2,10 +2,9 @@
 
 int main()
 {
-    // std::thread -> will terminate 
+    // std::thread -> will terminate
     // std::jthread -> calls join() in its destructor
-    std::jthread t{[]()
-                  { print("Hello!"); }};
+    std::jthread t{[]() { print("Hello!"); }};
 
     // As a consequence, main() never finishes when std::jthread runs forever
     // std::jthread t2{[]() {

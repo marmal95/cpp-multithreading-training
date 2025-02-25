@@ -5,8 +5,7 @@ int main()
 {
     {
         const std::string data = "some_data";
-        std::thread t{[&]()
-                      { print(data); }};
+        std::thread t{[&]() { print(data); }};
         t.detach();
 
         // Lambda captures by reference

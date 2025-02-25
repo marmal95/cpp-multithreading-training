@@ -29,8 +29,8 @@ Use `std::mutex` when:
 - You require **atomicity across multiple operations**.
 - The performance overhead of a mutex is acceptable.
 
-
 ## Deadlock avoidance
-1. Ustal jednolitą kolejność blokowania mutexów - Zawsze blokuj mutexy w tej samej kolejności w różnych wątkach.
-2. Użyj std::lock() do uniknięcia zakleszczenia - std::lock() blokuje wiele mutexów na raz, zapobiegając deadlockowi
-3. Używaj std::lock_guard / std::scoped_lock - gwarantuje odblokowanie mutexa
+1. Avoid nested locks.
+2. Establish a uniform order for blocking mutexes - Always block mutexes in the same order across all threads.
+3. Use std::lock() to avoid deadlocks - std::lock() locks multiple mutexes at once, preventing deadlocks
+4. Use std::lock_guard/std::scoped_lock to guarantee mutex unlock

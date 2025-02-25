@@ -12,8 +12,7 @@ void addData(int value)
 
 int main()
 {
-    const auto threadFunc = []()
-    {
+    const auto threadFunc = []() {
         for (int i = 0; i < 10'000; i++)
         {
             addData(i);
@@ -25,7 +24,7 @@ int main()
     for (int i = 0; i < 4; i++)
         threads.emplace_back(threadFunc);
 
-    for (auto &thread : threads)
+    for (auto& thread : threads)
         thread.join();
 
     print("vector size(): ", v.size());

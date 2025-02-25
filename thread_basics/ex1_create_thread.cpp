@@ -7,7 +7,7 @@ void function()
 
 class FunctionObject
 {
-public:
+  public:
     void operator()() const
     {
         print("Hello from a function object!");
@@ -19,8 +19,7 @@ int main()
     // Creates new threads and starts its execution immediately
     std::thread t1{function};
     std::thread t2{FunctionObject{}};
-    std::thread t3{[]()
-                   { print("Hello from lambda!"); }};
+    std::thread t3{[]() { print("Hello from lambda!"); }};
 
     // Parent thread must take care of child threads by
     // - waiting until they execution completes by .join() - waits for the spawned thread before continuing

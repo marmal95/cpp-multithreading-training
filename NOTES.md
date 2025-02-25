@@ -22,3 +22,7 @@
 - Wprowadzenie do problemów z mutexami
 - std::lock_guard
 - Porównanie std::atomic vs std::mutex
+
+## ex4_write_shared_mutex.cpp
+
+- Deadlock avoidance in README
