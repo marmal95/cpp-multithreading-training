@@ -1,17 +1,11 @@
 #include "../util/print.hpp"
 
-void function()
-{
-    print("Hello from function!");
-}
+void function() { print("Hello from function!"); }
 
 class FunctionObject
 {
   public:
-    void operator()() const
-    {
-        print("Hello from a function object!");
-    }
+    void operator()() const { print("Hello from a function object!"); }
 };
 
 int main()
@@ -29,7 +23,7 @@ int main()
     t3.join();
 
     // When threads are still joinable in ~thread, std::terminate is called.
-    // .joinable() - if object identifies an active thread of execution / "is in the state that represents some thread"
+    // .joinable() - if object identifies an active thread of execution - "is in the state that represents some thread"
     //   default constructed       => not joinable
     //   when moved-from           => not joinable
     //   detach() / join() called  => not joinable

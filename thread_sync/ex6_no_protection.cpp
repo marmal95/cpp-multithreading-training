@@ -1,7 +1,6 @@
 #include "../util/print.hpp"
 #include <array>
 #include <atomic>
-#include <iostream>
 #include <thread>
 
 std::atomic<int> data{0};
