@@ -13,7 +13,7 @@ void addData(int value)
 int main()
 {
     const auto threadFunc = []() {
-        for (int i = 0; i < 10'000; i++)
+        for (int i = 0; i < 1'000; i++)
         {
             addData(i);
         }
@@ -21,7 +21,7 @@ int main()
 
     std::vector<std::thread> threads;
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 10; i++)
         threads.emplace_back(threadFunc);
 
     for (auto& thread : threads)
