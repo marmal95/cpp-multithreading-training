@@ -11,6 +11,7 @@ class FunctionObject
 int main()
 {
     // Creates new threads and starts its execution immediately
+    // std::thread accepts any Callable: functions/lambdas/function objects.
     std::thread t1{function};
     std::thread t2{FunctionObject{}};
     std::thread t3{[]() { print("Hello from lambda!"); }};
@@ -22,7 +23,7 @@ int main()
     t2.join();
     t3.join();
 
-    // When threads are still joinable in ~thread, std::terminate is called.
+    // When threads are still `joinable` in ~thread, std::terminate is called.
     // .joinable() - if object identifies an active thread of execution - "is in the state that represents some thread"
     //   default constructed       => not joinable
     //   when moved-from           => not joinable

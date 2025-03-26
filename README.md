@@ -49,13 +49,13 @@
 ## **🚀 Which One to Use?**
 | Scenario | Best Mechanism |
 |----------|---------------|
-| **Protect shared data** (only one thread at a time) | `std::mutex` ✅ |
-| **Multiple readers, one writer** | `std::shared_mutex` ✅ |
-| **Limit access to N threads** (e.g., thread pool, database connections) | `std::semaphore` ✅ |
-| **Wait for an event before proceeding** | `std::condition_variable` ✅ |
-| **Thread-safe counter** | `std::atomic<int>` ✅ |
-| **Synchronize multiple threads at stages** | `std::barrier` ✅ |
-| **Wait for N tasks to finish before proceeding** | `std::latch` ✅ |
+| **Protect shared data** (only one thread at a time) | `std::mutex` |
+| **Multiple readers, one writer** | `std::shared_mutex` |
+| **Limit access to N threads** (e.g., thread pool, database connections) | `std::semaphore` |
+| **Wait for an event before proceeding** | `std::condition_variable` |
+| **Thread-safe counter** | `std::atomic<int>` |
+| **Synchronize multiple threads at stages** | `std::barrier` |
+| **Wait for N tasks to finish before proceeding** | `std::latch` |
 
 
 ## `std::atomic` vs `std::mutex` in C++
@@ -95,6 +95,28 @@ Use `std::mutex` when:
 3. Use std::lock() to avoid deadlocks - std::lock() locks multiple mutexes at once, preventing deadlocks
 4. Use std::lock_guard/std::scoped_lock to guarantee mutex unlock
 
+
+## Difference Between `std::atomic<bool>` and `std::atomic_flag` in C++
+
+Both `std::atomic<bool>` and `std::atomic_flag` provide **atomic** operations for thread synchronization, but they have key differences in terms of features and performance.
+
+
+| Feature               | `std::atomic<bool>` | `std::atomic_flag` |
+|----------------------|------------------|------------------|
+| **Type**            | Atomic Boolean (`true/false`) | Atomic flag (simplest atomic variable) |
+| **Initialization**  | Can be initialized to `true` or `false` | Always **false** after default construction (`std::atomic_flag flag = ATOMIC_FLAG_INIT;`) |
+| **Operations**      | Supports all atomic operations like `load()`, `store()`, `exchange()`, `compare_exchange_strong()` | Only supports `test_and_set()` and `clear()` |
+| **Resetting Value** | Can be set to `true` or `false` freely | Must be explicitly cleared using `clear()` before reuse |
+| **Lock-Free Guarantee** | **Not always lock-free** on all platforms | **Always lock-free** |
+| **Performance** | Slightly slower due to full atomic operations | Faster due to minimal operations |
+| **Use Case** | General atomic boolean flag, shared state management | Simple spinlock or low-level synchronization primitive |
+
+---
+
+
+
+<br/>
+<br/>
 
 # Locks comparison
 

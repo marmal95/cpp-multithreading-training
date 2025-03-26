@@ -17,12 +17,12 @@ struct Noisy
     }
 };
 
-void threadFunction(const Noisy& param) { print(&param); }
+void threadFunction(const Noisy& param) {}
 
 int main()
 {
     // The arguments to the thread function are moved or copied by value.
+    // If a reference argument needs to be passed to the thread function, it has to be wrapped with std::ref.
     Noisy noisy{};
-    print(&noisy);
     std::jthread thread(threadFunction, noisy);
 }
