@@ -1,11 +1,17 @@
 #include "../util/print.hpp"
 
-void function() { print("Hello from function!"); }
+void function()
+{
+    print("Hello from function!");
+}
 
 class FunctionObject
 {
   public:
-    void operator()() const { print("Hello from a function object!"); }
+    void operator()() const
+    {
+        print("Hello from a function object!");
+    }
 };
 
 int main()

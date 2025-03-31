@@ -1,12 +1,26 @@
 #include "../util/print.hpp"
+#include <thread>
 
 int main()
 {
-    int counter{};
+    // What is the output of the below code?
+    // What are the problems with the below code?
+    // - Does this code have race condition?
+    // - Does this code have Undefined Behavior?
+    // - Does this code may produce "Garbabe" values?
+
+    constexpr auto numOfThreads = 100;
+    std::size_t counter{};
+
     {
-        auto t1 = std::jthread{[&counter]() { counter = 1; }};
-        auto t2 = std::jthread{[&counter]() { counter = 2; }};
-        auto t3 = std::jthread{[&counter]() { counter = 3; }};
+        std::vector<std::jthread> threads;
+        threads.reserve(numOfThreads);
+
+        for (int threadId = 1; threadId <= numOfThreads; threadId++)
+        {
+            threads.emplace_back([&counter, threadId]() { counter = threadId; });
+        }
     }
+
     print("Counter: ", counter);
 }

@@ -3,7 +3,10 @@
 #include <thread>
 
 // Function to be wrapped
-int computeSquare(int x) { return x * x; }
+int computeSquare(int x)
+{
+    return x * x;
+}
 
 int main()
 {

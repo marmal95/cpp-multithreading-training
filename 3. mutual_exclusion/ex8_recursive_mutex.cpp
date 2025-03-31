@@ -6,7 +6,9 @@
 class FileHandler
 {
   public:
-    FileHandler(std::string name) : fileName(name) {}
+    FileHandler(std::string name) : fileName(name)
+    {
+    }
 
     void openFile()
     {

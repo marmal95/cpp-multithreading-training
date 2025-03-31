@@ -12,7 +12,10 @@ class mutex
         // Wait without true?
     }
 
-    bool try_lock() noexcept { return !flag.test_and_set(); }
+    bool try_lock() noexcept
+    {
+        return !flag.test_and_set();
+    }
 
     void unlock() noexcept
     {

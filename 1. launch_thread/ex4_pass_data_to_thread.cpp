@@ -2,9 +2,18 @@
 
 struct Noisy
 {
-    Noisy() { print("C-tor"); };
-    Noisy(const Noisy&) { print("Noisy Copy..."); }
-    Noisy(Noisy&&) { print("Noisy Move..."); }
+    Noisy()
+    {
+        print("C-tor");
+    };
+    Noisy(const Noisy&)
+    {
+        print("Noisy Copy...");
+    }
+    Noisy(Noisy&&)
+    {
+        print("Noisy Move...");
+    }
     Noisy& operator=(const Noisy&)
     {
         print("Operator&");
@@ -17,7 +26,9 @@ struct Noisy
     }
 };
 
-void threadFunction(const Noisy& param) {}
+void threadFunction(const Noisy& param)
+{
+}
 
 int main()
 {

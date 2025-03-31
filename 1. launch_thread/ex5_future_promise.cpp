@@ -21,7 +21,7 @@ int main()
 
     // Create a promise and future pair - allowing communication between threads
     // std::promise is a producer that stores a value or result,
-    // std::future is a consumer that retrieves the value asynchronously, .
+    // std::future is a consumer that retrieves the value asynchronously.
     std::promise<int> resultPromise;
     std::future<int> resultFuture = resultPromise.get_future();
 

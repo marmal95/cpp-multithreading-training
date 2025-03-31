@@ -1,22 +1,26 @@
 #include "../util/print.hpp"
-#include <vector>
+#include <thread>
 
 int main()
 {
-    int iterations{};
+    // What is the output of the below code?
+    // What are the problems with the below code?
+    // - Does this code have race condition?
+    // - Does this code have Undefined Behavior?
+    // - Does this code may produce "Garbabe" values?
 
-    const auto threadFunc = [&iterations]() {
-        for (int i = 0; i < 10'000; i++)
-            ++iterations;
-    };
+    constexpr auto numOfThreads = 100;
+    int counter{};
 
-    std::vector<std::thread> threads;
+    {
+        std::vector<std::jthread> threads;
+        threads.reserve(numOfThreads);
 
-    for (int i = 0; i < 4; i++)
-        threads.emplace_back(threadFunc);
+        for (int threadId = 1; threadId <= numOfThreads; threadId++)
+        {
+            threads.emplace_back([&counter, threadId]() { counter++; });
+        }
+    }
 
-    for (auto& thread : threads)
-        thread.join();
-
-    print("Iterations: ", iterations);
+    print("Counter: ", counter);
 }
