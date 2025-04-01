@@ -1,7 +1,5 @@
 #include "../util/print.hpp"
 #include <barrier>
-#include <chrono>
-#include <iostream>
 #include <thread>
 #include <vector>
 
