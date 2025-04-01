@@ -14,8 +14,8 @@ void transfer(BankAccount& source, BankAccount& target, const double amount)
     // std::lock_guard lock2{target.mutex};
 
     // std::lock(source.mutex, target.mutex);
-    // std::lock_guard lock1{source.mutex, std::adopt_lock};
-    // std::lock_guard lock2{target.mutex, std::adopt_lock};
+    // std::unique_lock lock1{source.mutex, std::adopt_lock};
+    // std::unique_lock lock2{target.mutex, std::adopt_lock};
 
     // std::unique_lock lock1{source.mutex, std::defer_lock};
     // std::unique_lock lock2{target.mutex, std::defer_lock};

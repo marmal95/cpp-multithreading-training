@@ -1,13 +1,13 @@
 #include "../util/print.hpp"
 #include <vector>
 
+// What is the output of the below code?
+// What are the problems with the below code?
+// - Does this code have race condition?
+// - Does this code have Undefined Behavior?
+
 int main()
 {
-    // What is the output of the below code?
-    // What are the problems with the below code?
-    // - Does this code have race condition?
-    // - Does this code have Undefined Behavior?
-
     constexpr auto numOfThreads = 100;
     std::string text{"Some text"};
 

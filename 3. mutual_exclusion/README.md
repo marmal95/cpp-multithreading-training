@@ -66,7 +66,6 @@ Use `std::mutex` when:
 - You require **atomicity across multiple operations**.
 - The performance overhead of a mutex is acceptable.
 
-<br />
 
 ## Deadlock avoidance
 1. Avoid nested locks.

@@ -3,6 +3,9 @@
 
 using namespace std::chrono_literals;
 
+// Why the deadlock happens?
+// How to fix the deadlock?
+
 int main()
 {
     std::mutex m1;

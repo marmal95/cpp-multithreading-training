@@ -3,6 +3,8 @@
 #include <atomic>
 #include <thread>
 
+// Is the below code safe?
+
 std::atomic<int> data{0};
 std::array<int, 5> shared_data{};
 

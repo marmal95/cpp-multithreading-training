@@ -1,7 +1,6 @@
 #include "../util/print.hpp"
 #include <map>
 #include <mutex>
-#include <optional>
 #include <shared_mutex>
 #include <string>
 

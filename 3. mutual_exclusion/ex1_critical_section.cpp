@@ -3,10 +3,15 @@
 
 std::vector<int> v{};
 
+// What's the output of this code?
+// What's wrong with this code?
+// How to fix this code?
+// What happens after fix when push_back throws exception?
+
 void addData(int value)
 {
     // [...]
-    v.push_back(value); // Deadlock when exception thrown
+    v.push_back(value);
     // [...]
 }
 
