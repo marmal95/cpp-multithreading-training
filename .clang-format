@@ -12,4 +12,5 @@ ConstructorInitializerAllOnOneLineOrOnePerLine: true
 BinPackArguments: false
 BinPackParameters: false
 BreakTemplateDeclarations: Yes
+AllowShortLoopsOnASingleLine: true
 ---

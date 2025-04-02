@@ -3,7 +3,6 @@
 | Mechanism       | Description |
 |----------------|------------|
 | **`std::condition_variable`** | Lets threads **wait** for an event and be **notified** when ready. |
-| **`std::condition_variable_any`** | Like `condition_variable`, but works with **any lock type**. |
 | **`std::barrier`** (C++20) | Synchronizes **multiple threads at specific points** (multi-stage processing). |
 | **`std::latch`** (C++20) | Allows threads to **wait until a counter reaches zero** (one-time use). |
 | **`std::semaphore`** (C++20) | Limits **how many threads** can access a resource concurrently. |

@@ -16,6 +16,5 @@ int main()
     std::vector<std::jthread> threads;
     threads.reserve(numOfThreads);
 
-    for (int threadId = 1; threadId <= numOfThreads; threadId++)
-        threads.emplace_back(threadFunc);
+    for (int threadId = 1; threadId <= numOfThreads; threadId++) threads.emplace_back(threadFunc);
 }

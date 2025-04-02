@@ -34,8 +34,7 @@ class mutex
         //   Since Thread B was not in the waiting state when notify_one() was called, it never receives
         //   the wakeup signal. Thread B is now sleeping forever, thinking it is still waiting for flag to change.
 
-        while (flag.test_and_set())
-            flag.wait(true);
+        while (flag.test_and_set()) flag.wait(true);
     }
 
     bool try_lock() noexcept
